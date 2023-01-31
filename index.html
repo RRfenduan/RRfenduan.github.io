@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <font style="font-size: 45px">
+    <p style="text-align: center">
+        <little>分段计算</little></p></font>
+
+    <p style="text-align: center"></p>
+  <style type="text/css">
+    .p1{
+          color: red;
+          font-size: 25px;
+      }
+    .p2{
+      color: red;
+      font-size: 25px;
+    }
+
+    button{
+      width: 89px;height: 44px;
+    }
+    .js{
+      font-size: 28px;
+    }
+    .sc{
+      font-size: 26px;width: 180px;height: 36px;
+    }
+    a{text-decoration: none;}
+    ul{list-style: none}
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 1920px;
+      height: 1080px;
+      background-image: url("1662776759151.jpeg");
+      background-size: 100% 100% ;
+      background-attachment: fixed;
+      margin: 0 auto;
+    }
+  </style>
+</head><br>
+<p style="text-align: center">
+  100m计算<br>
+<body class="js">
+    <select id="method" class="sc">
+      <option>国际田联公式</option>
+      <option>sc公式</option>
+      <option>sc更改公式</option>
+      <option>SP公式</option>
+    </select>
+    风速  <input id="f">
+    <p style="text-align: center" class="p1">
+        (必须输入，无风请输入0)
+    </p>
+    <p style="text-align: center">
+    前60m <input id="a"><br>
+    后40m <input id="b"><br>
+    <button id="1" onclick="aaa('a')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result"></span>+
+    <span id="result2"></span>=
+    <span id="result3"></span><br><br>
+
+        200m计算<br></p>
+   <p style="text-align: center">风速  <input id="e"></p>
+    <p style="text-align: center" class="p2">
+      (必须输入，无风请输入0)
+    </p>
+   <p style="text-align: center">
+    med100m（前程）  <input id="c"><br>
+    easy100m（后程）  <input id="d"><br>
+       <button onclick="bbb('b')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result4"></span>+
+    <span id="result5"></span>=
+    <span id="result6"></span><br><br></p>
+
+    <p style="text-align: center">
+    4*100m计算<br>
+    第一棒easy100m <input id="g"><br>
+    第二帮hard100m <input id="h"><br>
+    第三棒 med100m <input id="i"><br>
+    第四棒easy100m <input id="j"><br>
+    <button onclick="ccc('c')"><font style="font-size: 23px">计算</font></button><br>
+    第一棒<span id="result7"></span><br>
+    第二棒<span id="result8"></span><br>
+    第三棒<span id="result9"></span><br>
+    第四棒<span id="result10"></span><br>
+        <span id="result11"></span><br><br></p>
+   <p style="text-align: center">
+    110m栏计算<br>
+    easy110m栏  <input id="k"><br>
+    <button onclick="ddd('d')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result12"></span><p/>
+
+</body>
+<script>function aaa(a){
+    let inputA = document.getElementById("a")
+    let inputB = document.getElementById("b")
+    let method = document.getElementById("method")
+    let result = document.getElementById("result")
+    let valA = parseFloat(inputA.value)
+    let result2 = document.getElementById("result2")
+    let valB = parseFloat(inputB.value)
+    let inputF = document.getElementById("f")
+    let valF = parseFloat(inputF.value)
+    let res = 0;
+    if(method.value==='国际田联公式'){
+      res1 = (valA+0.97-valF*0.03).toFixed(3)
+      res2 = (valB+0.23-valF*0.02).toFixed(3)
+      res3 = (valA+0.97-valF*0.03+valB+0.23-valF*0.02).toFixed(3)
+    }else if(method.value==="sc公式"){
+      res1 = (valA**1.23-1.55-valF*0.03).toFixed(3)
+      res2 = (valB**1.30-1.03-valF*0.02).toFixed(3)
+      res3 = (valA**1.23-1.55-valF*0.03+valB**1.30-1.03-valF*0.02).toFixed(3)
+    }else if(method.value==="sc更改公式") {
+      res1 = (valA**1.10-valF*0.03).toFixed(3)
+      res2 = (valB ** 1.26 - 0.85-valF*0.02).toFixed(3)
+      res3 = (valA**1.10-valF*0.03+valB**1.26-0.85-valF*0.02).toFixed(3)
+    }else if(method.value==="SP公式"){
+      res1 = (valA+0.95-valF*0.03).toFixed(3)
+      res2 = (valB+0.20-valF*0.02).toFixed(3)
+      res3 = (valA+0.95-valF*0.03+valB+0.20-valF*0.02).toFixed(3)
+    }
+
+       result.innerText = res1
+      result2.innerText = res2
+      result3.innerText = res3
+
+  // 加法
+  Number.prototype.add = function(arg){
+    var r1,r2,m;
+    try{r1=this.toString().split(".")[1].length}catch(e){r1=0}
+    try{r2=arg.toString().split(".")[1].length}catch(e){r2=0}
+    m=Math.pow(10,Math.max(r1,r2))
+    return (this*m+arg*m)/m
+  }
+  //减法
+  Number.prototype.sub = function (arg){
+    return this.add(-arg);
+  }
+  //乘法
+  Number.prototype.mul = function (arg)
+  {
+    var m=0,s1=this.toString(),s2=arg.toString();
+    try{m+=s1.split(".")[1].length}catch(e){}
+    try{m+=s2.split(".")[1].length}catch(e){}
+    return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m)
+  }
+  //除法
+  Number.prototype.div = function (arg) {
+      var t1 = 0, t2 = 0, r1, r2;
+      try {
+          t1 = this.toString().split(".")[1].length
+      } catch (e) {
+      }
+      try {
+          t2 = arg.toString().split(".")[1].length
+      } catch (e) {
+      }
+      with (Math) {
+          r1 = Number(this.toString().replace(".", ""))
+          r2 = Number(arg.toString().replace(".", ""))
+          return (r1 / r2) * pow(10, t2 - t1);
+      }
+  }
+}
+</script>
+<script>function bbb(b){
+  let inputC = document.getElementById("c")
+  let inputD = document.getElementById("d")
+  let result4 = document.getElementById("result4")
+  let valC = parseFloat(inputC.value)
+  let result5 = document.getElementById("result5")
+  let valD = parseFloat(inputD.value)
+  let inputE = document.getElementById("e")
+  let valE = parseFloat(inputE.value)
+  result4.innerText = (valC+1.50-(valE*0.04)).toFixed(2)
+  result5.innerText = (valD+0.70-valE*0.06).toFixed(2)
+  result6.innerText = (valC+1.50-valE*0.04+valD+0.70-valE*0.06).toFixed(2)
+}
+</script>
+<script>function ccc(c){
+    let inputG = document.getElementById("g")
+    let inputH = document.getElementById("h")
+    let inputI = document.getElementById("i")
+    let inputJ = document.getElementById("j")
+    let result7 = document.getElementById("result7")
+    let valG = parseFloat(inputG.value)
+    let result8 = document.getElementById("result8")
+    let valH = parseFloat(inputH.value)
+    let result9 = document.getElementById("result9")
+    let valI = parseFloat(inputI.value)
+    let result10 = document.getElementById("result10")
+    let valJ = parseFloat(inputJ.value)
+    result7.innerText = (valG/5*5.876).toFixed(4)
+    result8.innerText = (valH+0.07).toFixed(4)
+    result9.innerText = (valI+0.5).toFixed(4)
+    result10.innerText = (valJ**1.26/1.6931).toFixed(4)
+    result11.innerText = (valG/5*5.876+valH+0.07+valI+0.5+valJ**1.26/1.6931).toFixed(4)
+}
+</script>
+<script>function ddd(d){
+    let inputK = document.getElementById("k")
+    let result12 = document.getElementById("result12")
+    let valK = parseFloat(inputK.value)
+    result12.innerText = (valK**0.37*5.5033).toFixed(2)
+}
+</script>
+<p style="text-align: center">
+    Lucifer.我是小羊XY 制作<br>
+    B站主页 https://space.bilibili.com/426311765?spm_id_from=333.1007.0.0<br>
+    RR国际田联群 742369376<br>RR游戏群 762233255</p>
+    <div class="box"></div>
+</body>
+    <script>window.onload = function() {
+      document.onkeydown = function() {
+         var e = window.event || arguments[0];
+         if (e.keyCode == 123) {
+           alert('禁止F12');
+           return false;
+      } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+          alert('禁止Ctrl+Shift+I');
+          return false;
+      } else if ((e.ctrlKey) && (e.keyCode == 85)) {
+          alert('禁止Ctrl+u');
+          return false;
+      } else if ((e.ctrlKey) && (e.keyCode == 83)) {
+          alert('禁止Ctrl+s');
+          return false;
+      }
+}
+// 屏蔽鼠标右键
+    document.oncontextmenu = function() {
+     alert('禁止右键');
+     return false;
+}
+}
+    </script>
+</html>
