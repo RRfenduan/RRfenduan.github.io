@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
     <font style="font-size: 45px">
@@ -92,7 +92,20 @@
     110m栏计算<br>
     easy110m栏  <input id="k"><br>
     <button onclick="ddd('d')"><font style="font-size: 23px">计算</font></button><br>
-    <span id="result12"></span><p/>
+    <span id="result12"></span><p/><br>
+
+   <p style="text-align: center">
+       150m计算<br>
+    风速  <input id="l">
+    <p style="text-align: center" class="p1">
+    (必须输入，无风请输入0)<br>
+    <p style="text-align: center">
+    前100m <input id="m"><br>
+    后50m <input id="n"><br>
+    <button id="2" onclick="eee('e')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result13"></span>+
+    <span id="result14"></span>=
+        <span id="result15"></span><br><br></p>
 
 </body>
 <script>function aaa(a){
@@ -168,17 +181,17 @@
 }
 </script>
 <script>function bbb(b){
-  let inputC = document.getElementById("c")
-  let inputD = document.getElementById("d")
-  let result4 = document.getElementById("result4")
-  let valC = parseFloat(inputC.value)
-  let result5 = document.getElementById("result5")
-  let valD = parseFloat(inputD.value)
-  let inputE = document.getElementById("e")
-  let valE = parseFloat(inputE.value)
-  result4.innerText = (valC+1.50-(valE*0.04)).toFixed(2)
-  result5.innerText = (valD+0.70-valE*0.06).toFixed(2)
-  result6.innerText = (valC+1.50-valE*0.04+valD+0.70-valE*0.06).toFixed(2)
+    let inputC = document.getElementById("c")
+    let inputD = document.getElementById("d")
+    let result4 = document.getElementById("result4")
+    let valC = parseFloat(inputC.value)
+    let result5 = document.getElementById("result5")
+    let valD = parseFloat(inputD.value)
+    let inputE = document.getElementById("e")
+    let valE = parseFloat(inputE.value)
+    result4.innerText = (valC+1.50-(valE*0.04)).toFixed(2)
+    result5.innerText = (valD+0.70-valE*0.06).toFixed(2)
+    result6.innerText = (valC+1.50-valE*0.04+valD+0.70-valE*0.06).toFixed(2)
 }
 </script>
 <script>function ccc(c){
@@ -208,6 +221,21 @@
     result12.innerText = (valK**0.37*5.5033).toFixed(2)
 }
 </script>
+<script>function eee(e){
+    let inputM = document.getElementById("m")
+    let inputN = document.getElementById("n")
+    let result13 = document.getElementById("result13")
+    let valM = parseFloat(inputM.value)
+    let result14 = document.getElementById("result14")
+    let valN = parseFloat(inputN.value)
+    let inputL = document.getElementById("l")
+    let valL = parseFloat(inputL.value)
+    result13.innerText = (valM+1.47-valL*0.03).toFixed(2)
+    result14.innerText = (valN+1.53-valL*0.02).toFixed(2)
+    result15.innerText = (valM+1.47-valL*0.03+valN+1.53-valL*0.02).toFixed(2)
+}
+</script>
+
 <p style="text-align: center">
     Lucifer.我是小羊XY 制作<br>
     B站主页 https://space.bilibili.com/426311765?spm_id_from=333.1007.0.0<br>
@@ -232,10 +260,10 @@
       }
 }
 // 屏蔽鼠标右键
-    document.oncontextmenu = function() {
-     alert('禁止右键');
-     return false;
-}
+//     document.oncontextmenu = function() {
+//      alert('禁止右键');
+//      return false;
+// }
 }
     </script>
 </html>
