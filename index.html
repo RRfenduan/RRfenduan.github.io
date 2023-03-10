@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-    <font style="font-size: 45px">
+    <font style="font-size: 62px">
     <p style="text-align: center">
         <little>分段计算</little></p></font>
 
@@ -43,6 +43,7 @@
   </style>
 </head><br>
 <p style="text-align: center">
+    <strong style="font-size: 52px">室外计算</strong ><br>
   100m计算<br>
 <body class="js">
     <select id="method" class="sc">
@@ -88,11 +89,24 @@
     第三棒<span id="result9"></span><br>
     第四棒<span id="result10"></span><br>
         <span id="result11"></span><br><br></p>
+
    <p style="text-align: center">
     110m栏计算<br>
     easy110m栏  <input id="k"><br>
     <button onclick="ddd('d')"><font style="font-size: 23px">计算</font></button><br>
     <span id="result12"></span><p/><br>
+
+<p style="text-align: center">
+    跳远计算<br>
+    easy跳远  <input id="p"><br>
+    <button onclick="ggg('g')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result17"></span><p/><br>
+
+<p style="text-align: center">
+    三级跳计算<br>
+    easy三级跳  <input id="v"><br>
+    <button onclick="kkk('k')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result25"></span><p/><br>
 
    <p style="text-align: center">
        150m计算<br>
@@ -106,6 +120,37 @@
     <span id="result13"></span>+
     <span id="result14"></span>=
         <span id="result15"></span><br><br></p>
+
+
+
+<p style="text-align: center">
+<strong style="font-size: 52px">室内计算</strong><br>
+    60m计算<br>
+    easy60m  <input id="o"><br>
+    <button onclick="fff('f')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result16"></span><br><br><p/>
+<p style="text-align: center">
+    100m计算<br>
+    前60m  <input id="q"><br>
+    后40m  <input id="r"><br>
+    <button onclick="hhh('h')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result18"></span>+
+    <span id="result19"></span>=
+    <span id="result20"></span><br><br></p>
+<p style="text-align: center">
+   200m计算<br>
+   easy100m  <input id="s"><br>
+   med100m  <input id="t"><br>
+   <button onclick="iii('i')"><font style="font-size: 23px">计算</font></button><br>
+   <span id="result21"></span>
+   <span id="result22"></span>
+   <span id="result23"></span><br><br><p/>
+<p style="text-align: center">
+    60m栏计算<br>
+    easy60m栏  <input id="u"><br>
+    <button onclick="jjj('j')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result24"></span><p/><br>
+
 
 </body>
 <script>function aaa(a){
@@ -221,6 +266,20 @@
     result12.innerText = (valK**0.37*5.5033).toFixed(2)
 }
 </script>
+<script>function ggg(g){
+    let inputP = document.getElementById("p")
+    let result17 = document.getElementById("result17")
+    let valP = parseFloat(inputP.value)
+    result17.innerText = (valP**0.98/1.25733).toFixed(2)
+}
+</script>
+<script>function kkk(k){
+    let inputV = document.getElementById("v")
+    let result25 = document.getElementById("result25")
+    let valV = parseFloat(inputV.value)
+    result25.innerText = (valV**1.6/11.433649).toFixed(4)
+}
+</script>
 <script>function eee(e){
     let inputM = document.getElementById("m")
     let inputN = document.getElementById("n")
@@ -235,6 +294,45 @@
     result15.innerText = (valM+1.47-valL*0.03+valN+1.53-valL*0.02).toFixed(2)
 }
 </script>
+<script>function fff(f){
+    let inputO = document.getElementById("o")
+    let result16 = document.getElementById("result16")
+    let valO = parseFloat(inputO.value)
+    result16.innerText = (valO+1).toFixed(2)
+}
+</script>
+<script>function hhh(h){
+    let inputQ = document.getElementById("q")
+    let inputR = document.getElementById("r")
+    let result18 = document.getElementById("result18")
+    let valQ = parseFloat(inputQ.value)
+    let result19 = document.getElementById("result19")
+    let valR = parseFloat(inputR.value)
+    result18.innerText = (valQ+1.03).toFixed(2)
+    result19.innerText = (valR+0.29).toFixed(2)
+    result20.innerText = (valQ+1.03+valR+0.29).toFixed(2)
+}
+</script>
+<script>function iii(i){
+    let inputS = document.getElementById("s")
+    let inputT = document.getElementById("t")
+    let result21 = document.getElementById("result21")
+    let valS = parseFloat(inputS.value)
+    let result22 = document.getElementById("result22")
+    let valT = parseFloat(inputT.value)
+    result21.innerText = (valS+1.92).toFixed(2)
+    result22.innerText = (valT+0.98).toFixed(2)
+    result23.innerText = (valS+1.92+valT+0.98).toFixed(2)
+}
+</script>
+<script>function jjj(j){
+    let inputU = document.getElementById("u")
+    let result24 = document.getElementById("result24")
+    let valU = parseFloat(inputU.value)
+    result24.innerText = (valU**0.66*2.33986).toFixed(2)
+}
+</script>
+
 
 <p style="text-align: center">
     Lucifer.我是小羊XY 制作<br>
@@ -245,7 +343,7 @@
     <script>window.onload = function() {
       document.onkeydown = function() {
          var e = window.event || arguments[0];
-         if (e.keyCode == 123) {
+         if (e.keyCode == 12) {
            alert('禁止F12');
            return false;
       } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
