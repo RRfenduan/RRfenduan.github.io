@@ -139,17 +139,28 @@
     <span id="result20"></span><br><br></p>
 <p style="text-align: center">
    200m计算<br>
-   easy100m  <input id="s"><br>
-   med100m  <input id="t"><br>
+   med100m  <input id="s"><br>
+   easy100m  <input id="t"><br>
    <button onclick="iii('i')"><font style="font-size: 23px">计算</font></button><br>
-   <span id="result21"></span>
-   <span id="result22"></span>
+   <span id="result21"></span>+
+   <span id="result22"></span>=
    <span id="result23"></span><br><br><p/>
 <p style="text-align: center">
     60m栏计算<br>
     easy60m栏  <input id="u"><br>
     <button onclick="jjj('j')"><font style="font-size: 23px">计算</font></button><br>
     <span id="result24"></span><p/><br>
+<p style="text-align: center">
+    跳远计算<br>
+    easy跳远  <input id="w"><br>
+    <button onclick="lll('l')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result26"></span><p/><br>
+
+<p style="text-align: center">
+    三级跳计算<br>
+    easy三级跳  <input id="x"><br>
+    <button onclick="mmm('m')"><font style="font-size: 23px">计算</font></button><br>
+    <span id="result27"></span><p/><br>
 
 
 </body>
@@ -330,6 +341,20 @@
     let result24 = document.getElementById("result24")
     let valU = parseFloat(inputU.value)
     result24.innerText = (valU**0.66*2.33986).toFixed(2)
+}
+</script>
+<script>function lll(l){
+    let inputW = document.getElementById("w")
+    let result26 = document.getElementById("result26")
+    let valW = parseFloat(inputW.value)
+    result26.innerText = (valW**0.98/1.25733-0.15).toFixed(2)
+}
+</script>
+<script>function mmm(m){
+    let inputX = document.getElementById("x")
+    let result27 = document.getElementById("result27")
+    let valX = parseFloat(inputX.value)
+    result27.innerText = (valX**1.6/11.433649-0.2).toFixed(4)
 }
 </script>
 
